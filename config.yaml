@@ -1,0 +1,46 @@
+db:
+  host: localhost
+  port: 27017
+  database: it_corpus
+  collection: documents
+  
+logic:
+  delay_between_requests: 1.0
+  max_documents: 35000
+  batch_size: 100
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) SearchBot/1.0"
+  timeout: 30
+  max_retries: 3
+  
+sources:
+  stackoverflow:
+    enabled: true
+    base_url: "https://api.stackexchange.com/2.3/questions"
+    tags:
+      - machine-learning
+      - artificial-intelligence
+      - python
+      - deep-learning
+      - neural-network
+    pages: 200
+    
+  wikipedia:
+    enabled: true
+    base_url: "https://en.wikipedia.org/w/api.php"
+    categories:
+      - Artificial_intelligence
+      - Machine_learning
+      - Computer_science
+      - Software_engineering
+      - Information_technology
+    max_articles: 10000
+    
+  techcrunch:
+    enabled: true
+    rss_url: "https://techcrunch.com/feed/"
+    max_items: 5000
+    
+  hacker_news:
+    enabled: true
+    rss_url: "https://hnrss.org/frontpage"
+    max_items: 10000
